@@ -8,7 +8,7 @@ class QuickFindUFTest {
 
   @Test
   void test() {
-    QuickFindUF uf = new QuickFindUF(10);
+    UnionFind uf = new QuickFindUF(10);
     uf.union(4, 3);
     testConnected(uf, new int[][] {{0}, {1}, {2}, {5}, {6}, {7}, {8}, {9}, {3, 4}});
 
@@ -43,7 +43,7 @@ class QuickFindUFTest {
     testConnected(uf, new int[][] {{0, 1, 2, 5, 6, 7}, {3, 4, 8, 9}});
   }
 
-  void testConnected(QuickFindUF uf, int[][] groups) {
+  void testConnected(UnionFind uf, int[][] groups) {
     for (int i = 0; i < groups.length; i++) {
       for (int j = 0; j < groups[i].length; j++) {
         int id = groups[i][j];

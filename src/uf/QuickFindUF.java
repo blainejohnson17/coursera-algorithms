@@ -1,6 +1,6 @@
 package uf;
 
-public class QuickFindUF {
+public class QuickFindUF implements UnionFind {
   private int[] id;
 
   QuickFindUF(int n) {
@@ -10,6 +10,7 @@ public class QuickFindUF {
     }
   }
 
+  @Override
   public void union(int p, int q) {
     if (!connected(q, p)) {
       int pVal = id[p];
@@ -23,6 +24,7 @@ public class QuickFindUF {
     }
   }
 
+  @Override
   public boolean connected(int q, int p) {
     return id[q] == id[p];
   }
