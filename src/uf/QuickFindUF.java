@@ -1,7 +1,7 @@
 package uf;
 
 public class QuickFindUF {
-  public int[] ids;
+  private int[] ids;
 
   QuickFindUF(int n) {
     ids = new int[n];
@@ -10,12 +10,13 @@ public class QuickFindUF {
     }
   }
 
-  public void union(int q, int p) {
+  public void union(int p, int q) {
     if (!connected(q, p)) {
       int pVal = ids[p];
+      int qVal = ids[q];
       for (int i = 0; i < ids.length; i++) {
         if (ids[i] == pVal) {
-          ids[i] = ids[q];
+          ids[i] = qVal;
         }
       }
 

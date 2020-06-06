@@ -38,8 +38,20 @@
     - void union(int q, int p)
     - boolean connected(int q, int p)
 
-  Quick-Find Implementation:
-    - data structure: int array, where index is identity (id) of object
-    - value at index is connected component (group) id
-    - objects are connected if and only if they are in same connected group (they have same value)
+  Quick-Find:
+    Implementation Notes:
+      - data structure: int array, where index is identity (id) of object
+      - value at index is connected component (group) id
+      - objects are connected if and only if they are in same connected group (they have same value)
+    Performance Notes:
+      - Cost Model: Number of array accesses (for read or write)
+        - used for cost evaluation
+      - Initialize: n, (proportional to size n, happens once upon init)
+      - union n, (proportional to size n, happens once for each union)
+      - find 1, (constant time regardless of size n, happens once for each find)
+      - Defect: too slow for union, n^2 time for n unions on n objects
+
+  Quick-Union (lazy approach)
+    Implementation Notes:
+
 
