@@ -49,9 +49,29 @@
       - Initialize: n, (proportional to size n, happens once upon init)
       - union n, (proportional to size n, happens once for each union)
       - find 1, (constant time regardless of size n, happens once for each find)
-      - Defect: too slow for union, n^2 time for n unions on n objects
+      - Defect:
+        - too slow for union, n^2 time for n unions on n objects
+        - trees are flat, but expensive to keep them flat (updating many elements during union)
 
   Quick-Union (lazy approach)
     Implementation Notes:
+      Represents connected components as tree structure, connected objects are in same tree
+      Is lazy in that it will do most work during find operation
+      Data Structure:
+        - int[] id size n
+        - id[i] = parent of i (value of array at index i is index of parent of i)
+        - root of object is found by traversing through parents until element references self as parent (root has self as parent)
+
+      Find:
+        - Check if p & q have same root
+
+      Union:
+        - merge tree of p with tree of q by connecting root of p to root of q
+
+      Performance Analysis:
+        - initialize: n
+        - find: n (worst case if tall/skinny trees)
+        - union: 1, contant time
+
 
 
