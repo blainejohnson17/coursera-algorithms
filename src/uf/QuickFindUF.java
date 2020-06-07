@@ -25,7 +25,7 @@ public class QuickFindUF implements UnionFind {
   }
 
   @Override
-  public boolean connected(int q, int p) {
-    return id[q] == id[p];
+  public boolean connected(int p, int q) {
+    return root(p) == root(q);
   }
 }
